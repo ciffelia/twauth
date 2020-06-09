@@ -18,4 +18,4 @@ The simplest way to obtain Twitter API access token & secret.
 
 ## Docker Image
 
-Available at [Docker Hub](https://hub.docker.com/repository/docker/ciffelia/twauth)
+Available at [Docker Hub](https://hub.docker.com/r/ciffelia/twauth)
