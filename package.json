@@ -1,0 +1,22 @@
+{
+  "name": "twauth",
+  "private": true,
+  "description": "The simplest way to obtain Twitter API access token & secret.",
+  "author": "Ciffelia <mc.prince.0203@gmail.com> (https://ciffelia.com/)",
+  "repository": "github:ciffelia/twauth",
+  "homepage": "https://github.com/ciffelia/twauth#readme",
+  "bugs": "https://github.com/ciffelia/twauth/issues",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "lint": "standard",
+    "fix": "standard --fix"
+  },
+  "devDependencies": {
+    "standard": "^14.3.4"
+  },
+  "dependencies": {
+    "@koa/router": "^9.0.1",
+    "koa": "^2.12.0",
+    "twitter-lite": "^0.13.0"
+  }
+}
