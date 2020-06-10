@@ -1,6 +1,6 @@
-const Koa = require('koa')
-const Router = require('@koa/router')
-const Twitter = require('twitter-lite')
+import Koa from 'koa'
+import Router from '@koa/router'
+import Twitter from 'twitter-lite'
 
 const client = new Twitter({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -12,7 +12,9 @@ const router = new Router()
 
 router.get('/', async (ctx, next) => {
   const oauthResult = await client.getRequestToken(process.env.TWITTER_CALLBACK_URL)
-  ctx.redirect(`https://api.twitter.com/oauth/authenticate?oauth_token=${oauthResult.oauth_token}`)
+  if (oauthResult.oauth_callback_confirmed === 'true') {
+    ctx.redirect(`https://api.twitter.com/oauth/authenticate?oauth_token=${oauthResult.oauth_token}`)
+  }
 
   await next()
 })
