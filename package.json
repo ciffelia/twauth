@@ -7,7 +7,8 @@
   "homepage": "https://github.com/ciffelia/twauth#readme",
   "bugs": "https://github.com/ciffelia/twauth/issues",
   "scripts": {
-    "start": "ts-node src/index.ts",
+    "dev": "ts-node --files src/index.ts",
+    "start": "ts-node --files --transpile-only src/index.ts",
     "lint": "standard",
     "fix": "standard --fix"
   },
