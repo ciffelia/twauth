@@ -26,11 +26,13 @@ router.get('/callback', async (ctx, next) => {
     oauth_verifier: ctx.request.query.oauth_verifier
   })
 
+  /* eslint-disable @typescript-eslint/restrict-plus-operands */
   ctx.body = ''
   ctx.body += `User ID: ${oauthResult.user_id}\n`
   ctx.body += `Screen name: ${oauthResult.screen_name}\n`
   ctx.body += `Access Token: ${oauthResult.oauth_token}\n`
   ctx.body += `Access Token Secret: ${oauthResult.oauth_token_secret}`
+  /* eslint-enable @typescript-eslint/restrict-plus-operands */
 
   await next()
 })
