@@ -1,17 +1,18 @@
 import Koa from 'koa'
 import Router from '@koa/router'
 import Twitter from 'twitter-lite'
+import * as config from './config'
 
 const client = new Twitter({
-  consumer_key: process.env.TWITTER_CONSUMER_KEY,
-  consumer_secret: process.env.TWITTER_CONSUMER_SECRET
+  consumer_key: config.consumerKey,
+  consumer_secret: config.consumerSecret
 })
 
 const app = new Koa()
 const router = new Router()
 
 router.get('/', async (ctx, next) => {
-  const oauthResult = await client.getRequestToken(process.env.TWITTER_CALLBACK_URL)
+  const oauthResult = await client.getRequestToken(config.callbackUrl)
   if (oauthResult.oauth_callback_confirmed === 'true') {
     ctx.redirect(`https://api.twitter.com/oauth/authenticate?oauth_token=${oauthResult.oauth_token}`)
   }
@@ -34,10 +35,9 @@ router.get('/callback', async (ctx, next) => {
   await next()
 })
 
-const port = process.env.PORT || 8080
 app
   .use(router.routes())
   .use(router.allowedMethods())
-  .listen(port, () => {
-    console.log(`Server listening at http://localhost:${port}/`)
+  .listen(config.port, () => {
+    console.log(`Server listening at http://localhost:${config.port}/`)
   })
