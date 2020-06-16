@@ -13,8 +13,11 @@ const router = new Router()
 
 router.get('/', async (ctx, next) => {
   const oauthResult = await client.getRequestToken(config.callbackUrl)
+
   if (oauthResult.oauth_callback_confirmed === 'true') {
     ctx.redirect(`https://api.twitter.com/oauth/authenticate?oauth_token=${oauthResult.oauth_token}`)
+  } else {
+    throw new Error('oauth_callback_confirmed is not "true".')
   }
 
   await next()
