@@ -1,4 +1,4 @@
-FROM node:12.18.0-alpine
+FROM node:14-alpine
 
 # Switch to non-root user
 RUN adduser -D twauth
@@ -14,4 +14,4 @@ RUN yarn install --frozen-lockfile --production && \
 
 COPY --chown=twauth:twauth . .
 
-ENTRYPOINT yarn run start
+ENTRYPOINT ["yarn", "run", "start"]
