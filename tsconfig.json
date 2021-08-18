@@ -1,19 +1,14 @@
 {
   "compilerOptions": {
-    /* Basic Options */
-    "target": "ES2019",
-    "module": "commonjs",
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
+    "target": "ES2020",
+    "module": "CommonJS",
+    "lib": ["ES2020"],
+    "noEmit": true,
 
-    /* Strict Type-Checking Options */
     "strict": true,
 
-    /* Module Resolution Options */
+    "skipLibCheck": true,
     "esModuleInterop": true,
-
-    /* Advanced Options */
     "forceConsistentCasingInFileNames": true
   },
 
