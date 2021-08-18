@@ -6,7 +6,7 @@ The simplest way to obtain Twitter API access token & secret.
 
 ## Usage
 
-1. Open your app at [Twitter Developers](https://developer.twitter.com/en/apps).
+1. Open your app at [Twitter Developers](https://developer.twitter.com/en/portal/projects-and-apps).
 2. Add http://localhost:8080/callback to callback URLs.
 3. Create `twauth.env` configuration file:
    ```sh
