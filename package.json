@@ -7,10 +7,10 @@
   "homepage": "https://github.com/ciffelia/twauth#readme",
   "bugs": "https://github.com/ciffelia/twauth/issues",
   "scripts": {
-    "dev": "ts-node --files ./src/index.ts",
     "start": "ts-node --files --transpile-only ./src/index.ts",
     "lint": "eslint --ext .js,.ts ./src",
-    "fix": "eslint --fix --ext .js,.ts ./src"
+    "fix": "eslint --fix --ext .js,.ts ./src",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@koa/router": "^10.1.0",
